@@ -16,6 +16,10 @@ This repository is a collection of common data structures and algorithms impleme
 
 Feel free to explore the code and contribute if you have improvements or new implementations to add.
 
+## Complexity
+
+![](https://miro.medium.com/v2/resize:fit:828/format:webp/1*5ZLci3SuR0zM_QlZOADv8Q.jpeg)
+
 ## Data Structures
 
 We have provided implementations of various data structures, including but not limited to:
