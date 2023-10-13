@@ -181,8 +181,44 @@ class LinkedList:
             current = current.next
         
         return list(unique_val)
-    
+	
+    def concat(self, other):
+        present = self.head
+        while present and present.next:
+            present = present.next
+        present.next = other.head
+
+    def middle_element(self):
+        length = self.len()
+        if length%2==1:
+            return self.nth_value(length // 2)
+        else:
+            first = self.nth_value(length // 2)
+            second = self.nth_value((length // 2)- 1)
+            return (first + second) / 2
         
+    def delete_after(self, value):
+        current = self.head
+        while current:
+            if current.value == value:
+                current.next = current.next.next
+                break
+            current = current.next
+        print(f'value {value} not found in list')
+        
+    def delete_before(self, value):
+        current = self.head
+        prev = None
+        second_prev = None
+        while current:
+            if current.value == value:
+                if second_prev:
+                    second_prev.next = current  
+                    return         
+            second_prev = prev
+            prev = current
+            current = current.next
+        print(f'value {value} not found in list')
 
 # testing
 linkedlist = LinkedList()
@@ -210,3 +246,13 @@ print(linkedlist.nth_value(6))
 print("average - ", linkedlist.average())
 linkedlist.from_list([1,1,1,2,2])
 print("unique values - ", linkedlist.unique())
+linkedlist2 = LinkedList()
+linkedlist2.from_list([1000, 1001])
+linkedlist.concat(linkedlist2)
+linkedlist.print()
+print(linkedlist.middle_element())
+linkedlist.delete_after(1000)
+linkedlist.print()
+linkedlist.delete_after(1001)
+linkedlist.delete_before(100)
+linkedlist.print()
