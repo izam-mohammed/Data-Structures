@@ -134,6 +134,22 @@ class CircularLinkedList:
             if current == self.head:
                 break
 
+def is_cyclic(ll):
+    current = ll.head
+    
+    if not ll:
+        print('nothing in here')
+        return
+    
+    while True:
+        current = current.next
+        
+        if not current:
+            return False
+        
+        if current == ll.head:
+            return True
+
 
 # testing
 
@@ -155,3 +171,4 @@ print(linkedlist.search(4))
 print(linkedlist.search(1001))
 linkedlist.selection_sort()
 linkedlist.print()
+print(is_cyclic(linkedlist))
