@@ -220,6 +220,16 @@ class LinkedList:
             current = current.next
         print(f'value {value} not found in list')
 
+    def remove_duplicates(self):
+        if not self.head: return
+        
+        current = self.head
+        while current and current.next:
+            while current.next.value == current.value:
+                current.next = current.next.next
+            current = current.next
+        
+
 # testing
 linkedlist = LinkedList()
 
@@ -244,7 +254,7 @@ linkedlist.print()
 print(linkedlist.nth_value(2))
 print(linkedlist.nth_value(6))
 print("average - ", linkedlist.average())
-linkedlist.from_list([1,1,1,2,2])
+linkedlist.from_list([1,4,1,8,2])
 print("unique values - ", linkedlist.unique())
 linkedlist2 = LinkedList()
 linkedlist2.from_list([1000, 1001])
@@ -255,4 +265,8 @@ linkedlist.delete_after(1000)
 linkedlist.print()
 linkedlist.delete_after(1001)
 linkedlist.delete_before(100)
+linkedlist.print()
+linkedlist.selection_sort()
+linkedlist.print()
+linkedlist.remove_duplicates()
 linkedlist.print()
