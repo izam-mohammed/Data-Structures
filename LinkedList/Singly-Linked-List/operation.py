@@ -29,6 +29,17 @@ class LinkedList:
             current = current.next
         print('None')
         
+    def __str__(self) -> str:
+        if not self.head: return 'None'
+        s = ''
+        current = self.head
+        while current:
+            s += f'{current.data} -> '
+            current = current.next
+        s += "None"
+        return s
+        
+        
     def prepend(self, data) -> None:
         new_node = Node(data)
         new_node.next = self.head
@@ -71,7 +82,7 @@ class LinkedList:
             prev = current
             current = current.next
     
-    def delete(self, value):
+    def delete(self, value) -> None:
         if not self.head:
             print('no data in this')
             return
@@ -87,7 +98,106 @@ class LinkedList:
                 return
             prev = current
             current = current.next
+            
+    def reverse(self) -> None:
+        if not self.head:
+            print('no data in this')
+            return
         
+        prev = None        
+        current = self.head
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        
+        self.head = prev
+        
+    def search(self, value) -> bool:
+        if not self.head:
+            print('no data in this')
+            return False
+        
+        current = self.head
+        while current:
+            if current.data == value:
+                print(f"value {value} found in this list")
+                return True
+            current = current.next
+        print('value not found')
+        return False
+    
+    def len(self) -> int:
+        c = 0
+        current = self.head
+        while current:
+            c+=1
+            current = current.next
+        return c
+    
+    def concat(self, node2) -> None:
+        if not self.head:
+            self.head = node2.head
+            return
+        
+        current = self.head
+        while current and current.next:
+            current = current.next
+        current.next = node2.head
+        
+    def remove_end_n(self, n:int) -> None:
+        nth_val = (self.len() + 1) - n
+
+        current = self.head
+        c = 0
+        while current:
+            c += 1
+            if nth_val == c:
+                prev.next = current.next
+            prev = current
+            current = current.next
+    
+    def clone(self):
+        ll = LinkedList()
+        current = self.head
+        while current:
+            ll.append(current.data)
+            current = current.next
+        return ll
+    
+    def pop(self):
+        if not self.head : return
+        
+        if not self.head.next:
+            val = self.head
+            self.head = None
+            return val
+        
+        current = self.head
+        while current and current.next:
+            prev = current
+            current = current.next
+        prev.next = None
+        return current.data
+            
+        
+        
+
+
+def is_cyclic(node:LinkedList) -> bool:
+    if not node:
+        print("no node in this")
+        return False
+    
+    current = node.head
+    while current and current.next:
+        current = current.next
+        if current.next == node.head:
+            return True
+        
+    return False
+    
     
         
         
@@ -107,4 +217,17 @@ if __name__ == '__main__':
     linkedlist.insert_before(1, -99)
     linkedlist.delete(99)
     linkedlist.print()
-        
+    linkedlist.reverse()
+    linkedlist.search(5)
+    linkedlist.search(78)
+    linkedlist.print()
+    print(linkedlist.len())
+    linkedlist2 = LinkedList()
+    linkedlist2.append(4)
+    linkedlist.concat(linkedlist2)
+    linkedlist.print()
+    print(is_cyclic(linkedlist))
+    linkedlist.remove_end_n(2)
+    print(linkedlist)
+    print('poped ',linkedlist.pop())
+    print(linkedlist)
