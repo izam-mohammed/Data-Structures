@@ -1,7 +1,7 @@
 def valid_parenthesis(s):
     stack = []
-    brackets = {')':'(', '}':'{', ']':'['}
-    
+    brackets = {")": "(", "}": "{", "]": "["}
+
     for char in s:
         if char in brackets.values():
             stack.append(char)
@@ -12,5 +12,6 @@ def valid_parenthesis(s):
             return False
     return not stack
 
-input_string = '([{}[]])'
+
+input_string = "([{}[]])"
 print(valid_parenthesis(input_string))

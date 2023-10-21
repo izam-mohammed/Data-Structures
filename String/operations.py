@@ -1,32 +1,35 @@
-def substring(str1:str, str2:str) -> bool:
+def substring(str1: str, str2: str) -> bool:
     """check  if the str2 is the substring of str1"""
 
     main = len(str1)
     sub = len(str2)
-    
+
     for i in range(main):
-        if str1[i:i+sub] == str2:
+        if str1[i : i + sub] == str2:
             return True
     return False
 
 
 # testing
 
-str1= 'hai hisham'
-str2= 'his'
+str1 = "hai hisham"
+str2 = "his"
 
 if substring(str1, str2):
-    print('It is sub')
-    
+    print("It is sub")
+
+
 def reverse(str1):
-    res = ''
+    res = ""
     for i in str1:
-        res  = i + res
+        res = i + res
     return res
+
 
 # testing
 
-print(reverse('hellooo'))
+print(reverse("hellooo"))
+
 
 def longest_substring_without_repeating_chars(s):
     if not s:
@@ -45,14 +48,12 @@ def longest_substring_without_repeating_chars(s):
 
         if end - start + 1 > max_length:
             max_length = end - start + 1
-            max_substring = s[start:end + 1]
+            max_substring = s[start : end + 1]
 
     return max_substring
+
 
 # Example usage:
 input_string = "abcabcbb"
 result = longest_substring_without_repeating_chars(input_string)
 print(result)  # This will print "abc"
-
-            
-

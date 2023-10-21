@@ -36,13 +36,14 @@ class Stack:
     def __str__(self) -> str:
         if self.is_empty():
             return "None"
-        res = '[ '
+        res = "[ "
         current = self.items
         while current:
-            res += str(current.data)+' , '
+            res += str(current.data) + " , "
             current = current.next
-        res = res[:-2] + ']'
+        res = res[:-2] + "]"
         return res
+
 
 # testing
 

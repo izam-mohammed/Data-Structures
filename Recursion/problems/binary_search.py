@@ -1,7 +1,9 @@
 def binary_search(arr, target, low=None, high=None) -> int:
-    if not low: low = 0
-    if not high: high = len(arr) - 1
-    
+    if not low:
+        low = 0
+    if not high:
+        high = len(arr) - 1
+
     if low > high:
         return -1
 
