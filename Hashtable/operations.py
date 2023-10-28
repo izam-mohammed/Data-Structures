@@ -15,8 +15,7 @@ class HashTable:
                 if k == key:
                     self.table[index][i] = (key, value)
                     break
-                else:
-                    self.table[index].append((key, value))
+            self.table[index].append((key, value))
 
     def get(self, key):
         index = self.hash(key)
