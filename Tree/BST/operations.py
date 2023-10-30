@@ -77,7 +77,7 @@ def is_bst(node, min_value=float('-inf'), max_value=float('inf')):
     if not node:
         return True
     
-    if node.data < min_value or node.data > max_value:
+    if node.data <= min_value or node.data >= max_value:
         return False
     
     return (is_bst(node.left, min_value, node.data) and
