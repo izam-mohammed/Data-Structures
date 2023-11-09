@@ -1,4 +1,4 @@
-# Data Structures and Algorithms Playground
+# Data Structures and Algorithms 
 
 Welcome to the Data Structures and Algorithms Playground! This repository serves as a space for experimenting with various data structures and algorithms. Whether you're a beginner looking to learn or a seasoned developer looking for a quick reference, you'll find something valuable here.
 
